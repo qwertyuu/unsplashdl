@@ -5,7 +5,7 @@ jobs:
       - image: circleci/python:3.7
     steps:
       - checkout
-      - run: echo "export BAZ=baz.`git log --pretty=format:%s -n 1 $CIRCLE_SHA1`" >> $BASH_ENV
+      - run: echo "export BAZ=`git log --pretty=format:%s -n 1 $CIRCLE_SHA1`" >> $BASH_ENV
       - run: echo "$BAZ"
       - run: echo 'export COMMIT_TAG=$(git log --pretty=format:%s -n 1 $CIRCLE_SHA1)' >> ~/.bashrc
       - run: echo $COMMIT_TAG
