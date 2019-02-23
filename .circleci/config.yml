@@ -1,12 +1,11 @@
 version: 2
 jobs:
   build:
-    environment:
-      GIT_COMMIT_DESC: git log --format=%B -n 1 $CIRCLE_SHA1
     docker:
       - image: circleci/python:3.7
     steps:
       - checkout
+      - run: echo "export COMMIT_MESSAGE=\"$(git log --format=oneline -n 1 $CIRCLE_SHA1)\"" >> ~/.bashrc
       - run: echo $GIT_COMMIT_DESC
       - run: 'sudo pip install -r requirements.txt'
       ##- run: 'python main.py'
