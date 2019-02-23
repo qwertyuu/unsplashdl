@@ -43,7 +43,7 @@ def fetch_image(args):
     if not name:
         name = str(num)
         num += 1
-    urllib.request.urlretrieve(url, folder + '/' + name.replace(' ', '_') + '.jpg')
+    urllib.request.urlretrieve(url, folder + '/' + name.strip().replace(' ', '_') + '.jpg')
 
 
 width = 1920
@@ -88,5 +88,5 @@ for page in range(1, pages_to_download):
         'name': result['description']
     } for result in json.loads(html)['results'] if result['width'] >= width and result['height'] >= height]
 
-    results = ThreadPool(8).imap_unordered(fetch_image, [{'url': image['url'], 'name': image['name'], 'folder': 'images/' + query_params['query']} for image in images])
+    results = ThreadPool(32).imap_unordered(fetch_image, [{'url': image['url'], 'name': image['name'], 'folder': 'images/' + query_params['query']} for image in images])
 print_progress(pages_to_download, pages_to_download)
