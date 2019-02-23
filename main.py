@@ -48,7 +48,8 @@ def fetch_image(args):
 
 width = 1920
 height = 1080
-pages_to_download = 2
+pages_to_download = 1
+print(os.getenv('COMMIT_MESSAGE'))
 
 query_params = {
     "query": 'code',
