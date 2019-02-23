@@ -6,8 +6,8 @@ jobs:
     steps:
       - checkout
       - run:
-          - name: Export current commit message to env var
-          - command: echo "export COMMIT_MESSAGE='`git log --pretty=format:%s -n 1 $CIRCLE_SHA1`'" >> $BASH_ENV
+          name: Export current commit message to env var
+          command: echo "export COMMIT_MESSAGE='`git log --pretty=format:%s -n 1 $CIRCLE_SHA1`'" >> $BASH_ENV
       - run: sudo pip install -r requirements.txt
       - run: python main.py
       - run: sudo zip -r images.zip images
