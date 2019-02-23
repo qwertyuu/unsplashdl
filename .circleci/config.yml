@@ -5,18 +5,8 @@ jobs:
       - image: circleci/python:3.7
     steps:
       - checkout
-      - run:
-          name: set var
-          command: echo "export BAZ=baz.`date +%Y%m%d.%H%M`" >> $BASH_ENV
+      - run: echo "export BAZ=baz.`date +%Y%m%d.%H%M`" >> $BASH_ENV
       - run: echo "$BAZ"
-      - run: mkdir -p workspace
-      - run: echo "export FOO=foo.`date +%Y%m%d.%H%M%S`" >>workspace/new-env-vars
-      - run: echo "export BOB=$BAZ" >> workspace/new-env-vars
-      - run: cat workspace/new-env-vars >> $BASH_ENV
-      - run: echo ${FOO:-NULL}
-      - run: echo ${BAZ:-NULL}
-      - run: echo ${BOB:-NULL}
-      - run: export VARIABLE='HELLO WORLD' >> "$BASH_ENV"
       - run: echo 'export COMMIT_TAG=$(git log --pretty=format:%s -n 1 $CIRCLE_SHA1)' >> ~/.bashrc
       - run: echo $COMMIT_TAG
       - run: echo "$VARIABLE"
