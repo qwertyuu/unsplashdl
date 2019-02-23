@@ -5,12 +5,12 @@ jobs:
       - image: circleci/python:3.7
     steps:
       - checkout
-      - run: 'sudo apt install p7zip'
+      - run: 'sudo apt-get install zip'
       - run: 'sudo pip install -r requirements.txt'
       - run: 'python main.py'
-      - run: 'sudo 7z a images.7z images'
+      - run: 'sudo zip -r images.zip images'
       - store_artifacts:
-          path: images
+          path: images.zip
           prefix: images
 workflows:
   version: 2

@@ -48,7 +48,7 @@ def fetch_image(args):
 
 width = 1920
 height = 1080
-pages_to_download = 20
+pages_to_download = 1
 
 query_params = {
     "query": 'code',
