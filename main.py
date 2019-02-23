@@ -69,8 +69,10 @@ photo_params = {
 photo_params = urllib.parse.urlencode(photo_params)
 
 print_progress(0, pages_to_download)
-if not os.path.exists(query_params['query']):
-    os.mkdir(query_params['query'])
+if not os.path.exists('images'):
+    os.mkdir('images')
+if not os.path.exists('images/' + query_params['query']):
+    os.mkdir('images/' + query_params['query'])
 for page in range(1, pages_to_download):
     query_params['page'] = page
     html = urllib.request \
