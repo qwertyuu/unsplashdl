@@ -46,14 +46,14 @@ def fetch_image(args):
     urllib.request.urlretrieve(url, folder + '/' + name.strip().replace(' ', '_') + '.jpg')
 
 
-width = 1920
-height = 1080
+width = 1080
+height = 1920
 pages_to_download = 20
 commit_message = os.getenv('COMMIT_MESSAGE')
 
 query_params = {
-    "query": 'wallpaper',
-    "orientation": "landscape",
+    "query": 'mountains',
+    "orientation": "portrait",
     "per_page": 30,
     "client_id": os.getenv('CLIENT_ID')
 }
