@@ -50,7 +50,7 @@ width = 1920
 height = 1080
 pages_to_download = 20
 commit_message = os.getenv('COMMIT_MESSAGE')
-search = 'winter mountain'
+search = 'video game'
 
 query_params = {
     "query": search,
