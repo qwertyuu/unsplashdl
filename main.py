@@ -46,11 +46,11 @@ def fetch_image(args):
     urllib.request.urlretrieve(url, folder + '/' + name.strip().replace(' ', '_') + '.jpg')
 
 
-width = 1920
-height = 1080
+width = 2560
+height = 1600
 pages_to_download = 20
 commit_message = os.getenv('COMMIT_MESSAGE')
-search = 'video game'
+search = 'mountain'
 
 query_params = {
     "query": search,
