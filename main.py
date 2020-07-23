@@ -46,8 +46,8 @@ def fetch_image(args):
     urllib.request.urlretrieve(url, folder + '/' + name.strip().replace(' ', '_') + '.jpg')
 
 
-width = 2560
-height = 1600
+width = 1920
+height = 1080
 pages_to_download = 20
 commit_message = os.getenv('COMMIT_MESSAGE')
 search = 'mountain'
